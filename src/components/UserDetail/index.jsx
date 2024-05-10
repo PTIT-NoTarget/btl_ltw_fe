@@ -12,11 +12,8 @@ function UserDetail() {
   const [user, setUser] = useState(null);
   const topBarStore = useTopBarStore();
   useEffect(() => {
-    models.fetchUserModel(param.userId).then((data) => {
-      setUser(data);
-      topBarStore.setRightTitle(data.first_name + " " + data.last_name);
-    });
-  }, [param]);
+    
+  }, []);
   return (
     <>
       <Typography variant="h4" color="inherit">
