@@ -98,6 +98,31 @@ const fetchUserList = async () => {
   return result;
 };
 
+const fetchUserListBySearch = async (search) => {
+  const response = await fetch(url + "/api/user/list/search/" + search, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem("token"),
+    },
+  });
+  const result = await response.json();
+  return result;
+}
+
+// API lấy ra thông tin user hiện tại
+const fetchUserProfile = async () => {
+  const response = await fetch(url + "/api/user/profile", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem("token"),
+    },
+  });
+  const result = await response.json();
+  return result;
+}
+
 // API cho update thông tin user
 const fetchUserUpdate = async (data) => {
   /**
@@ -311,6 +336,8 @@ const models = {
   fetchResetPassword,
   fetchUser,
   fetchUserList,
+  fetchUserListBySearch,
+  fetchUserProfile,
   fetchUserUpdate,
   fetchPostListOwn,
   fetchPostListByUser,
